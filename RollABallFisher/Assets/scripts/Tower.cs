@@ -11,20 +11,19 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    GameObject Projectile;
+    public GameObject projectile;
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("Spawn",0 , 2.0f);
     }
-    /*public invokeRepeating()
-    {
-
-        return;
-    }*/
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    void Spawn()
+    {
+        Instantiate(projectile, transform);
     }
 }
