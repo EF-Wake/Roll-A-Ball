@@ -15,12 +15,11 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find(ball.name).transform.position = new Vector3();
+        ball = GameObject.Find("Player");
     }
-
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
