@@ -8,18 +8,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    public GameObject scoresign;
+    public TMP_Text message;
     int score = 0;
     int lives = 3;
     [SerializeField] float speed = 5.0f;
     Rigidbody rb;
     Vector3 movement;
+    private AudioSource capsule;
+    //scoresign.text = "Score: " + score;
     // Start is called before the first frame update
     void Start()
     {
-        
+        scoresign.GetComponent<TMP_Text>().text = "0";
+    }
+    public void setscore(float scoreTotal)
+    {
+        float currentscore = float.Parse(scoresign.GetComponent<TMP_Text>().text);
+        float newscore = currentscore + scoreTotal;
+        scoresign.GetComponent<TMP_Text>().text = newscore.ToString("F0");
     }
     private void Awake()
     {
@@ -36,5 +47,15 @@ public class NewBehaviourScript : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.deltaTime);
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.CompareTag("Pickup Object"))
+        {
+            Destroy(collision.gameObject);
+            score = score + 1;
+            capsule = GetComponent<AudioSource>();
+            capsule.Play();
+        }
     }
 }

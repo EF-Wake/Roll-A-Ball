@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn",0 , 2.0f);
+        InvokeRepeating("Spawn",0 , 3.0f);
     }
     // Update is called once per frame
     void Update()
@@ -24,6 +24,7 @@ public class Tower : MonoBehaviour
     }
     void Spawn()
     {
-        Instantiate(projectile, transform);
+        GameObject Instance = Instantiate(projectile, transform.position, Quaternion.identity);
+        Instance.transform.parent = gameObject.transform;
     }
 }
