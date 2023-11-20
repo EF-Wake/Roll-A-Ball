@@ -12,6 +12,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public GameObject ball;
+    
+
     // Start is called before the first frame update
     void Start()
     {
