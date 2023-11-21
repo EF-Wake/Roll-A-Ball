@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn",0 , 3.0f);
+        InvokeRepeating("Spawn",0 , 5.0f);
     }
     // Update is called once per frame
     void Update()

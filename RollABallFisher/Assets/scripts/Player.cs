@@ -12,19 +12,18 @@ using TMPro;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public GameObject scoresign;
-    public TMP_Text message;
+    private GameObject scoresign;
+    private TMP_Text message;
     int score = 0;
-    int lives = 3;
+    public int lives = 3;
     [SerializeField] float speed = 5.0f;
     Rigidbody rb;
     Vector3 movement;
     private AudioSource capsule;
-    //scoresign.text = "Score: " + score;
     // Start is called before the first frame update
     void Start()
     {
-        scoresign.GetComponent<TMP_Text>().text = "0";
+        rb = GetComponent<Rigidbody>();
     }
     public void setscore(float scoreTotal)
     {
