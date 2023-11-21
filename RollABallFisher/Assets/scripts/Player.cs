@@ -41,6 +41,8 @@ public class NewBehaviourScript : MonoBehaviour
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
         movement = movement.normalized;
+        Debug.Log(score);
+        Debug.Log(lives);
     }
 
     private void FixedUpdate()
@@ -49,6 +51,7 @@ public class NewBehaviourScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision)
     {
+        //why won't the score change!?!?
         if(collision.gameObject.CompareTag("Pickup Object"))
         {
             Destroy(collision.gameObject);
@@ -56,5 +59,11 @@ public class NewBehaviourScript : MonoBehaviour
             capsule = GetComponent<AudioSource>();
             capsule.Play();
         }
+        // WHY IS NOT SHOWING UP IN THE PANEL!?!?!
+        if(collision.gameObject.CompareTag("Projectile Tag"))
+        {
+            lives = lives - 1;
+        }
+        //IS THERE EVEN DAMAGE IN UNITY?!!??!
     }
 }
